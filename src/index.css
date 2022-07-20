@@ -11,3 +11,28 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.activo{
+  background-color: #33d457;
+  border-radius: 20px;
+  padding: 4px;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #fff;
+  cursor: pointer;
+}
+
+
+.inactivo{
+  background-color: rgba(253, 47, 47, 0.918);
+  border-radius: 20px;
+  padding: 4px;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #fff;
+  cursor: pointer;
+
+}
+
