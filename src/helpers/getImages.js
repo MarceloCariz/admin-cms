@@ -27,3 +27,19 @@ export const actualizarTodo = async (id, formData) => {
     headers: {'Content-Type': 'multipart/form-data' }
   });
 };
+
+export const guardarTodo = async (formData) => {
+  const respuesta = await axios({
+    method: "post",
+    url:  "https://totem.ivaras.cl:7002/api/imagenes/upload",
+    data: formData,
+    headers: {'Content-Type': 'multipart/form-data' }
+  });
+};
+export const eliminarTodo = async (id) => {
+
+  const respuesta = await axios.delete(
+    `https://totem.ivaras.cl:7002/api/imagenes/image/${id}/delete`
+  );
+  // console.log(respuesta.data.form)
+};
