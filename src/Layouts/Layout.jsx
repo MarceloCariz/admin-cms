@@ -44,6 +44,8 @@ const Layout = () => {
       <Aside>
         <Titulo to="/inicio">Totem App</Titulo>
         <Enlace to="imagenes">Imagenes</Enlace>
+        <Enlace to="subirImagen">Subir Imagen</Enlace>
+
       </Aside>
       <Main>
         <Outlet />

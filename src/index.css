@@ -36,3 +36,43 @@ code {
 
 }
 
+.btn-input{
+  font-size: 16px;
+  color: #fff;
+  background: #3a3aec;
+  cursor: pointer;
+  border: 0;
+  border-radius: 5rem;
+}
+.input-form{
+  height: 250px;
+  display: flex;
+  margin: 30px 0;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 5px;
+  border: 2px dashed #3a3aec;
+}
+form :where(i, p){
+  color: #3a3aec;
+}
+form i{
+  font-size: 50px;
+}
+form p{
+  font-size: 16px;
+  margin-top: 15px;
+}
+.btn-titulo{
+  color:#3a3aec;
+  font-size: 27px;
+  font-weight: 600;
+  text-align: center;
+}
+.file-input{
+  margin: 30px 0;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}

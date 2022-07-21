@@ -1,8 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Buffer } from 'buffer';
 import styled from 'styled-components';
-import { Navigate } from 'react-router-dom';
-import { actualizarTodo, cambiarEstado, eliminarTodo, obtenerImagenes } from '../helpers/getImages';
+import { actualizarTodo, cambiarEstado, eliminarTodo } from '../helpers/getImages';
 
 
 const Container = styled.div`
@@ -24,10 +22,20 @@ const Input = styled.input`
 `;
 
 const P = styled.p`
-
+ color: black;
   font-size: 0.8rem;
   text-align: left;
   font-weight: 500;
+`;
+const Eliminar = styled.button`
+  background-color: #e94d50;
+  color: white;
+  padding: 4px 8px 4px 8px;
+  border: none;
+  font-size: 0.8rem;
+  text-align: center;
+  font-weight: 500;
+  cursor: pointer;
 `;
 
 const Div = styled.div`
@@ -70,7 +78,7 @@ const CardImagenes = ({ imagenes }) => {
 
   const handleInputChange = (e) => {
     setImagen({
-      ...imagenes,
+      ...imagen,
       [e.target.name]: e.target.value
     })
     setActualizado(true)
@@ -116,7 +124,7 @@ const CardImagenes = ({ imagenes }) => {
 
         <Div>
           <Img src={path} alt="" onClick={handleImage} />
-          <input onChange={handleFileChange} ref={inputArchivo} id="fileSelector" name="file" type="file" className="sr-only" />
+          <input onChange={handleFileChange} ref={inputArchivo} id="fileSelector" name="file" type="file" className="sr-only"  />
           <Input name='title' onChange={handleInputChange} value={title || ''} />
           {actualizado && (
             <button>Actualizar</button>
@@ -125,10 +133,11 @@ const CardImagenes = ({ imagenes }) => {
         </Div>
 
 
-        <P>Nombre Archivo: </P>
-        <Input name='filename' disabled onChange={handleInputChange} value={filename || ''} />
+        
+        <P name='filename'  >
+        {filename || ''}</P>
         <p onClick={handleActive} className={`${active ? 'activo' : 'inactivo'}`}>{active ? 'Activo' : 'Inactivo'}</p>
-        <button onClick={onClickDeleteImage}>Eliminar</button>
+        <Eliminar onClick={onClickDeleteImage}>Eliminar</Eliminar>
       </form>
 
     </Container>
