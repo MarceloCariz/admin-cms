@@ -30,7 +30,6 @@ const Imagenes = () => {
     // }
     cargarImagenes();
   }, []);
-  console.log("1");
   return (
     <>
       <H2>Imagenes</H2>

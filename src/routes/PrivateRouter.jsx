@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 import Layout from '../Layouts/Layout'
 import Imagenes from '../pages/Imagenes'
 import Inicio from '../pages/Inicio'
+import Preguntas from '../pages/Preguntas'
 import SubirImagen from '../pages/SubirImagen'
 
 const PrivateRouter = () => {
@@ -12,6 +13,8 @@ const PrivateRouter = () => {
             <Route index  element={<Inicio/>}/>
             <Route  path='imagenes' element={<Imagenes/>}/>
             <Route  path='subirImagen' element={<SubirImagen/>}/>
+            <Route  path='preguntas' element={<Preguntas/>}/>
+
 
 
         </Route>

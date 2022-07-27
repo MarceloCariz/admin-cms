@@ -23,7 +23,7 @@ const Main = styled.main`
 
 const Enlace = styled(Link)`
   font-size: 1.2rem;
-  text-align: center;
+  text-align: left;
   color: white;
   cursor: pointer;
   text-decoration: none;
@@ -45,6 +45,8 @@ const Layout = () => {
         <Titulo to="/inicio">Totem App</Titulo>
         <Enlace to="imagenes">Imagenes</Enlace>
         <Enlace to="subirImagen">Subir Imagen</Enlace>
+        <Enlace to="preguntas">Preguntas</Enlace>
+
 
       </Aside>
       <Main>
