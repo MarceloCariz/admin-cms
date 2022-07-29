@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import Categoria from '../components/preguntas/Categoria';
 import Pregunta from '../components/preguntas/Pregunta';
 import { obtenerPreguntas } from '../helpers/getPreguntas'
+import '../index.css';
+import {Link} from 'react-router-dom';
 
 
 
@@ -23,7 +25,7 @@ const Preguntas = () => {
 
     useEffect(() => {
         const obtenerData = async()=>{
-            const {data, categories, subcategories} =await  obtenerPreguntas();
+            const {data, categories, subcategories} = await  obtenerPreguntas();
             setPreguntas(data)
             setCategoria(categories)
             setSubCategoria(subcategories)
@@ -35,7 +37,18 @@ const Preguntas = () => {
     
   return (
     <>
+
+
+
+
+        <div className='header-ask'>
         <h2>Preguntas</h2>
+
+
+        <Link className='btn-ask' to='../crear-pregunta'>Crear Pregunta</Link>
+
+        </div>
+        <hr />
         <Categorias>
         <Categoria categoria={categoria} subcategoria={subCategoria} setCategoriaOption={setCategoriaOption} setActive={setActive} active={active}/>
         </Categorias>

@@ -24,3 +24,12 @@ export const obtenerPreguntas = async() =>{
     return {data, subcategories, categories};
 
 }
+
+export const saveAsk = async(data) => {
+    await axios({
+        url: "https://totem.ivaras.cl:7002/api/preguntas/save",
+        method: "post",
+        data: data,
+        headers: {'Content-Type': 'multipart/form-data' }
+    });
+}

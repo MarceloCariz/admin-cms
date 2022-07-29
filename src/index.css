@@ -76,3 +76,83 @@ form p{
   border-radius: 5px;
   text-align: center;
 }
+
+.header-ask {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-ask {
+  border-radius: 15px;
+  background: #3a3aec;
+  color: #fff;
+  font-size: 13px;
+  border: 0;
+  padding: 15px;
+  text-decoration: none;
+}
+
+.ask-h1 {
+  font-size: 35px;
+  color: #3a3aec;
+  text-transform: uppercase;
+}
+
+.form-ask {
+  width: 400px;
+}
+
+
+.form-ask input {
+
+  width: 300px;
+  border-bottom: #3a3aec solid 3px;
+  margin: 10px;
+  padding: 10px;
+  font-size: 20px;
+  color: #3a3a3a;
+  outline: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.form-ask input:focus {
+  border-bottom: #01a2ff solid 3px;
+
+}
+
+.btn-ask {
+  border-radius: 15px;
+  background: #3a3aec;
+  font-size: 15px;
+  padding: 15px;
+  margin-top: 15px;
+  text-align: center;
+}
+
+.select-ask {
+  display: flex;
+  justify-content: space-between;
+  justify-content: center;
+}
+
+.select {
+  width: 150px;
+  margin: 10px;
+  
+  font-size: 20px;
+  border-bottom: #3a3aec solid 3px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  outline: none;
+  color: #3a3a3a;
+} 
+
+
+.select input:focus {
+  border-bottom: #01a2ff solid 3px;
+
+}
