@@ -25,6 +25,16 @@ export const obtenerPreguntas = async() =>{
 
 }
 
+export const actualizarPregunta = async(id, actualizado) =>{
+    try {
+       const {ok} = await axios.put( `https://totem.ivaras.cl:7002/api/preguntas/update/${id}`,actualizado);
+       return ok;
+        
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 export const saveAsk = async(data) => {
     await axios({
         url: "https://totem.ivaras.cl:7002/api/preguntas/save",

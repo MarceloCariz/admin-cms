@@ -1,38 +1,115 @@
-import React, { useEffect, useState } from 'react'
+import React, {useState } from 'react'
 import styled from 'styled-components'
 
+import {actualizarPregunta} from '../../helpers/getPreguntas';
 
 
 
 
-const Div = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;  
-`;
-const Input = ({respuesta, id}) => {
-    const [answer, setAnswer] = useState('')
+
+const Input = ({respuesta, id, pregunta}) => {
+
+    const [formValues, setFormValues] = useState({respuesta:respuesta, pregunta: pregunta})
+    const [alerta, setAlerta] = useState('');
     const [active, setActive] = useState(false)
-    useEffect(()=>{
-        setAnswer(respuesta)
 
-    },[])
     const handleOnChange = ({target}) =>{
-        setAnswer(target.value)
+        console.log(formValues)
+        setFormValues({...formValues,
+            [target.name]: target.value
+        })
         setActive(true)
     }
+
+    const handleActualizar = (e) =>{
+        e.preventDefault();
+        const respuesta =actualizarPregunta(id, formValues)
+        if(respuesta){
+          setAlerta('Actualizado Correctamente')
+          setTimeout(() => {
+            setAlerta('')
+          }, 2000);
+        }else{
+          setAlerta('Hubo un error')
+
+        }
+    }
     return (
-    <Div>
-        <textarea name="" id={id} cols="120"onChange={handleOnChange} value={answer} rows="6"></textarea>
+    <Div onSubmit={handleActualizar}>
+   
+        <DivInput>
+            <P>Pregunta</P>
+            <InputS id={id} name="pregunta" value={formValues.pregunta} onChange={handleOnChange}/>
+
+        </DivInput>
+
+        <DivTextarea>
+        <P>Respuesta</P>
+
+        <TextArea name="respuesta"id={id} onChange={handleOnChange} value={formValues.respuesta} ></TextArea>
         {/* <input type="text" value={answer} onChange={handleOnChange} /> */}
+       
+        </DivTextarea>
         {
             active && (
-                <button>Actualizar</button>
+                <Button type='submit' className='activo'>{alerta ? alerta :' Actualizar'}</Button>
             )
         }
     </Div>
   )
 }
 
+const P = styled.p`
+  color: black;
+`;
+const Button  = styled.button`
+  padding: 10px 18px 10px 18px;  
+  border: 1px solid greenyellow;
+`;
+const Div = styled.form`
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;  
+  gap: 1rem;
+  border: 1px solid  black;
+  border-radius: 5px;
+  padding-bottom: 2rem;
+  margin-top: 1rem;
+
+`;
+
+const DivInput = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 1rem;
+  margin-top: 2rem;
+  width:  90%;  
+`;
+
+const DivTextarea = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 1rem;
+  width:  90%;  
+`;
+
+const InputS = styled.input`
+  border: 1px solid  lightgray;
+  border-radius: 10px;
+  padding: 0.6rem;
+  width:  100%;  
+`;
+
+const TextArea = styled.textarea`
+  width: 100%;
+  min-height: 5rem;
+  border: 1px solid  lightgray;
+  border-radius: 10px;
+`;
 export default Input

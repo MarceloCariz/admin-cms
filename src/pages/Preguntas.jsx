@@ -10,9 +10,11 @@ import {Link} from 'react-router-dom';
 
 
 const Categorias = styled.div`
-  display: grid;
-  grid-template-columns: repeat(5, 12rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   gap: 2rem;
+  width: auto;
 `;
 
 const Preguntas = () => {

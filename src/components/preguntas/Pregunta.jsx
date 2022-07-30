@@ -23,14 +23,12 @@ const Pregunta = ({categoriaOption,preguntas, active}) => {
   
   return (
     <div>
-
       {preguntasFiltradas.length > 0  && (
         preguntasFiltradas.map(({_id, pregunta, respuesta},i)=>{
           return(
             <div key={_id}>
-                <p>{pregunta}</p>
            
-               <Input  respuesta={respuesta} id={_id} />
+               <Input pregunta={pregunta} respuesta={respuesta} id={_id} />
 
             </div>
           )
