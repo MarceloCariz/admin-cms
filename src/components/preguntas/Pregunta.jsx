@@ -41,6 +41,7 @@ const Pregunta = ({categoriaOption,preguntas, active}) => {
 }
 const Div = styled.div`
   overflow-y: scroll;
-  height: 13%;
+  width: 100%;
+  height: 600px;
 `;
 export default Pregunta
