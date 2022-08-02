@@ -1,8 +1,9 @@
 import axios from "axios";
+import clienteAxios from "../axios";
 
 export const obtenerImagenes = async () => {
-  const { data } = await axios.get(
-    "https://totem.ivaras.cl:7002/api/imagenes/"
+  const { data } = await clienteAxios(
+    "/imagenes/"
   );
   // console.log(data)
   const respuesta = data;
@@ -12,8 +13,8 @@ export const obtenerImagenes = async () => {
 export const cambiarEstado = async (id, active) => {
   const activeAc = !active;
 
-  const respuesta = await axios.put(
-    `https://totem.ivaras.cl:7002/api/imagenes/image/${id}/update`,
+  const respuesta = await clienteAxios.put(
+    `/imagenes/image/${id}/update`,
     { active: activeAc }
   );
   // console.log(respuesta.data.form)
@@ -38,8 +39,8 @@ export const guardarTodo = async (formData) => {
 };
 export const eliminarTodo = async (id) => {
 
-  const respuesta = await axios.delete(
-    `https://totem.ivaras.cl:7002/api/imagenes/image/${id}/delete`
+  const respuesta = await clienteAxios.delete(
+    `/imagenes/image/${id}/delete`
   );
   // console.log(respuesta.data.form)
 };

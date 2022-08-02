@@ -2,6 +2,7 @@ import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Layout from '../Layouts/Layout'
 import { CrearPregunta } from '../pages/CrearPregunta'
+import Evaluaciones from '../pages/Evaluaciones'
 import Imagenes from '../pages/Imagenes'
 import Inicio from '../pages/Inicio'
 import Preguntas from '../pages/Preguntas'
@@ -12,10 +13,14 @@ const PrivateRouter = () => {
     <Routes>
         <Route path='/inicio' element={<Layout/>}>
             <Route index  element={<Inicio/>}/>
+            
             <Route  path='imagenes' element={<Imagenes/>}/>
             <Route  path='subirImagen' element={<SubirImagen/>}/>
+
             <Route  path='preguntas' element={<Preguntas/>}/>
             <Route  path='crear-pregunta' element={<CrearPregunta/>}/>
+
+            <Route path='evaluacion' element={<Evaluaciones/>}/>
 
 
 

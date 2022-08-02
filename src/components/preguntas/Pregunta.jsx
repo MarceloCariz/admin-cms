@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import styled from 'styled-components'
 import Input from './Input'
 
 const Pregunta = ({categoriaOption,preguntas, active}) => {
@@ -22,7 +23,7 @@ const Pregunta = ({categoriaOption,preguntas, active}) => {
   
   
   return (
-    <div>
+    <Div>
       {preguntasFiltradas.length > 0  && (
         preguntasFiltradas.map(({_id, pregunta, respuesta},i)=>{
           return(
@@ -35,8 +36,11 @@ const Pregunta = ({categoriaOption,preguntas, active}) => {
         })
       )}
 
-    </div>
+    </Div>
   )
 }
-
+const Div = styled.div`
+  overflow-y: scroll;
+  height: 13%;
+`;
 export default Pregunta

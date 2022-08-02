@@ -1,10 +1,11 @@
 import axios from "axios"
+import clienteAxios from "../axios";
 
 
 
 
 export const obtenerPreguntas = async() =>{
-    const {data} = await axios('https://totem.ivaras.cl:7002/api/preguntas');
+    const {data} = await clienteAxios('/preguntas');
  
     const resultado =  data.filter(function( element ) {return element.subcategoria !== undefined;});
     
@@ -27,7 +28,7 @@ export const obtenerPreguntas = async() =>{
 
 export const actualizarPregunta = async(id, actualizado) =>{
     try {
-       const {ok} = await axios.put( `https://totem.ivaras.cl:7002/api/preguntas/update/${id}`,actualizado);
+       const {ok} = await clienteAxios.put( `/preguntas/update/${id}`,actualizado);
        return ok;
         
     } catch (error) {

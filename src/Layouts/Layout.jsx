@@ -46,6 +46,7 @@ const Layout = () => {
         <Enlace to="imagenes">Imagenes</Enlace>
         <Enlace to="subirImagen">Subir Imagen</Enlace>
         <Enlace to="preguntas">Preguntas</Enlace>
+        <Enlace to="evaluacion">Evaluaciones</Enlace>
 
 
       </Aside>
