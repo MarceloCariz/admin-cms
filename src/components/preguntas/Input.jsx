@@ -7,9 +7,9 @@ import {actualizarPregunta} from '../../helpers/getPreguntas';
 
 
 
-const Input = ({respuesta, id, pregunta}) => {
-
-    const [formValues, setFormValues] = useState({respuesta:respuesta, pregunta: pregunta})
+const Input = ({respuesta, id, pregunta, subcategoria}) => {
+    // console.log(subcategoria)
+    const [formValues, setFormValues] = useState({respuesta:respuesta, pregunta: pregunta, subcategoria: subcategoria})
     const [alerta, setAlerta] = useState('');
     const [active, setActive] = useState(false)
 
@@ -42,6 +42,11 @@ const Input = ({respuesta, id, pregunta}) => {
             <InputS id={id} name="pregunta" value={formValues.pregunta} onChange={handleOnChange}/>
 
         </DivInput>
+        <DivSub>
+            <P>Subcategoria</P>
+            <InputS id={id} name="subcategoria" value={formValues.subcategoria} onChange={handleOnChange}/>
+
+        </DivSub>
 
         <DivTextarea>
         <P>Respuesta</P>
@@ -89,7 +94,15 @@ const DivInput = styled.div`
   margin-top: 2rem;
   width:  90%;  
 `;
-
+const DivSub = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 1rem;
+  /* margin-top: 2rem; */
+  width:  90%;  
+`;
 const DivTextarea = styled.div`
   display: flex;
   flex-direction: row;

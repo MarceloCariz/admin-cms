@@ -25,11 +25,11 @@ const Pregunta = ({categoriaOption,preguntas, active}) => {
   return (
     <Div>
       {preguntasFiltradas.length > 0  && (
-        preguntasFiltradas.map(({_id, pregunta, respuesta},i)=>{
+        preguntasFiltradas.map(({_id, pregunta, respuesta, subcategoria},i)=>{
           return(
             <div key={_id}>
            
-               <Input pregunta={pregunta} respuesta={respuesta} id={_id} />
+               <Input pregunta={pregunta} respuesta={respuesta} subcategoria={subcategoria} id={_id} />
 
             </div>
           )

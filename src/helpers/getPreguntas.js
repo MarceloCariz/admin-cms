@@ -28,6 +28,7 @@ export const obtenerPreguntas = async() =>{
 
 export const actualizarPregunta = async(id, actualizado) =>{
     try {
+        console.log(actualizado)
        const {ok} = await clienteAxios.put( `/preguntas/update/${id}`,actualizado);
        return ok;
         
