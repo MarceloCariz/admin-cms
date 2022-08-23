@@ -25,6 +25,11 @@ const Preguntas = () => {
     const [categoriaOption, setCategoriaOption] = useState('')
     const [active, setActive] = useState(false)
 
+
+
+
+
+
     useEffect(() => {
         const obtenerData = async()=>{
             const {data, categories, subcategories} = await  obtenerPreguntas();
@@ -44,7 +49,8 @@ const Preguntas = () => {
 
 
         <div className='header-ask'>
-        <h2>Preguntas</h2>
+        <h2>Preguntas2</h2>
+
 
 
         <Link className='btn-ask' to='../crear-pregunta'>Crear Pregunta</Link>
