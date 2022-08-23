@@ -49,7 +49,7 @@ const Preguntas = () => {
 
 
         <div className='header-ask'>
-        <h2>Preguntas2</h2>
+        <h2>Preguntas</h2>
 
 
 
