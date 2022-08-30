@@ -43,6 +43,7 @@ const Layout = () => {
     <Container>
       <Aside>
         <Titulo to="/inicio">Totem App</Titulo>
+        <Enlace to="/inicio">Dashbaord</Enlace>
         <Enlace to="imagenes">Imagenes</Enlace>
         <Enlace to="subirImagen">Subir Imagen</Enlace>
         <Enlace to="preguntas">Preguntas</Enlace>
