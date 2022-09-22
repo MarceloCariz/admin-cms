@@ -46,6 +46,7 @@ const Layout = () => {
         <Enlace to="/inicio">Dashbaord</Enlace>
         <Enlace to="imagenes">Imagenes</Enlace>
         <Enlace to="subirImagen">Subir Imagen</Enlace>
+        <Enlace to="subirArchivo">Subir Archivos</Enlace>
         <Enlace to="preguntas">Preguntas</Enlace>
         <Enlace to="evaluacion">Evaluaciones</Enlace>
 

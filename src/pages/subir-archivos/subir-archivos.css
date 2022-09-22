@@ -1,0 +1,45 @@
+.row-archivos {
+    margin-top: 35% !important;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+   
+}
+
+.col-archivos {
+    width: 550px;
+}
+
+.col-archivos h3 {
+    border-bottom: 2px #232323 solid;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    padding: 15px;
+}
+
+.icono-archivo {
+    font-size: 100px;
+    color: rgb(8, 151, 8);
+}
+
+.image-upload>input {
+    display: none;
+}
+
+.btn-archivo {
+    border: none;
+    width: 300px;
+    height: 60px;
+    border-radius: 15px;
+    background: #5197c0;
+    color: #fff;
+    font-size: 25px;
+    text-align: center;
+    
+}
+
+.icono-enviar {
+    
+    padding: 15px;
+}

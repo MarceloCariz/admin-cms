@@ -7,6 +7,7 @@ import Evaluaciones from '../pages/Evaluaciones'
 import Imagenes from '../pages/Imagenes'
 import Inicio from '../pages/Inicio'
 import Preguntas from '../pages/Preguntas'
+import { SubirArchivo } from '../pages/subir-archivos/SubirArchivo'
 import SubirImagen from '../pages/SubirImagen'
 
 const PrivateRouter = () => {
@@ -17,6 +18,7 @@ const PrivateRouter = () => {
             
             <Route  path='imagenes' element={<Imagenes/>}/>
             <Route  path='subirImagen' element={<SubirImagen/>}/>
+            <Route  path='subirArchivo' element={<SubirArchivo/>}/>
 
             <Route  path='preguntas' element={<Preguntas/>}/>
             <Route  path='crear-pregunta' element={<CrearPregunta/>}/>
