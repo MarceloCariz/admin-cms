@@ -76,7 +76,7 @@ export const SubirArchivo = () => {
   
   const onChangeInputFileAlumno = async (e) => {
     
-    const myFile = e.target.files[0];
+    const myFile = e.target.files[1];
     
     if (!myFile){
       return ;
