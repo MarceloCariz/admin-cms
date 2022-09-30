@@ -4,16 +4,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFileArrowUp, faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 
 import { read, utils } from 'xlsx';
-import { uploadDocente } from '../../helpers/getArchivos';
+import { uploadAlumno, uploadDocente } from '../../helpers/getArchivos';
 
 export const SubirArchivo = () => {
 
+  //docente
   const [file, setFile] = useState(null);
   const [fileTitle, setFileTitle] = useState(null);
   const [sheetNames, setSheetNames] = useState([]);
   const [sheetData, setSheetData] = useState({});
-
-
 
   const readDataFromExcel = (data) => {
     const wb = read(data);
@@ -51,15 +50,64 @@ export const SubirArchivo = () => {
 
   }
 
+  //alumno
+  const [fileAlumno, setFileAlumno] = useState(null);
+  const [fileTitleAlumno, setFileTitleAlumno] = useState(null);
+  const [sheetNamesAlumno, setSheetNamesAlumno] = useState([]);
+  const [sheetDataAlumno, setSheetDataAlumno] = useState({});
+
+
+
+  const readDataFromExcelAlumno = (data) => {
+    const wb = read(data);
+    setSheetNamesAlumno(wb.SheetNames);
+
+    for(let i = 0; i < wb.SheetNames.length; i++) {
+      let sheetName = wb.SheetNames[i];
+
+      const worksheet = wb.Sheets[sheetName];
+      const jsonData = utils.sheet_to_json(worksheet);
+
+      setFileAlumno(jsonData);
+
+    }
+    
+  }
+  
+  const onChangeInputFileAlumno = async (e) => {
+    
+    const myFile = e.target.files[0];
+    
+    if (!myFile){
+      return ;
+    }
+
+    setFileTitleAlumno(myFile.name);
+    
+    const data = await myFile.arrayBuffer();
+    readDataFromExcelAlumno(data);
+  }
+
   const onSubmitInputFile = (e) => {
       e.preventDefault();
 
-      if (!file) {
-        alert('Debes cargar un archivo .xlsx o .xls')
-        return;
+      // if (!file) {
+      //   alert('Debes cargar un archivo .xlsx o .xls')
+      //   return;
+      // }
+
+      // if (!fileAlumno) {
+      //   alert('Debes cargar un archivo .xlsx o .xls')
+      //   return;
+      // }
+
+      if (fileAlumno !== null) {
+        uploadAlumno(fileAlumno);
       }
 
-      uploadDocente(file);
+      if (file !== null){
+        uploadDocente(file);
+      }
 
 
   }
@@ -68,8 +116,10 @@ export const SubirArchivo = () => {
   return (
     <>
 
-      {!fileTitle &&  <h3>Debes subir un archivo</h3>}
+      {!fileTitle &&  <h3>Debes subir un archivo para Docente</h3>}
       {fileTitle && <h3>Nombre del archivo: {fileTitle}</h3>}
+      {!fileTitleAlumno &&  <h3>Debes subir un archivo para Alumno</h3>}
+      {fileTitleAlumno && <h3>Nombre del archivo: {fileTitleAlumno}</h3>}
 
       <form onSubmit={onSubmitInputFile}>
         <div className='row-archivos row m-5'>
@@ -80,7 +130,7 @@ export const SubirArchivo = () => {
                     <FontAwesomeIcon icon={faFileArrowUp} />
                   </label>
 
-                  <input id='file-input' className='icono-archivo' type="file" accept='xlsx, xls' multiple={false} onChange={(e) => onChangeInputFile(e)}/>
+                  <input id='file-input' className='icono-archivo' type="file" accept='xlsx, xls' multiple={false} onChange={(e) => onChangeInputFileAlumno(e)}/>
 
                 </div>
 
