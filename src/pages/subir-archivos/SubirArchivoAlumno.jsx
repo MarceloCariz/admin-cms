@@ -4,9 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFileArrowUp, faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 
 import { read, utils } from 'xlsx';
-import { uploadDocente } from '../../helpers/getArchivos';
+import { uploadAlumno } from '../../helpers/getArchivos';
 
-export const SubirArchivo = () => {
+export const SubirArchivoAlumno = () => {
 
   const [file, setFile] = useState(null);
   const [fileTitle, setFileTitle] = useState(null);
@@ -59,7 +59,7 @@ export const SubirArchivo = () => {
         return;
       }
 
-      uploadDocente(file);
+      uploadAlumno(file);
 
 
   }
@@ -73,18 +73,19 @@ export const SubirArchivo = () => {
 
       <form onSubmit={onSubmitInputFile}>
         <div className='row-archivos row m-5'>
-          <div className='col-archivos col-xl-12 col-lg-12 col-md-12 col-sm-12'>
-              <h3>Cargar Docentes</h3>
-        
-              <div className='image-upload'>
-              <label for="file-input" className='icono-archivo'>
+          <div className='col-archivos col-xl-6 col-lg-6 col-md-6 col-sm-12'>
+              <h3>Cargar Alumnos</h3>
+                <div className='image-upload'>
+                <label for="file-input" className='icono-archivo'>
                     <FontAwesomeIcon icon={faFileArrowUp} />
                   </label>
 
                   <input id='file-input' className='icono-archivo' type="file" accept='xlsx, xls' multiple={false} onChange={(e) => onChangeInputFile(e)}/>
+
                 </div>
 
-        
+
+            
           </div>
         </div>
 
