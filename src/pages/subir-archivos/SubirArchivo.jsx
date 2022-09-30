@@ -103,11 +103,11 @@ export const SubirArchivo = () => {
 
       if (fileAlumno !== null) {
         uploadAlumno(fileAlumno);
-      }
+      }else{return;}
 
       if (file !== null){
         uploadDocente(file);
-      }
+      }else{return;}
 
 
   }
